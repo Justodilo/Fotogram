@@ -1,0 +1,261 @@
+:root {
+    --bg: rgb(8, 22, 30);
+    --text: white;
+    --bg2: rgb(8, 33, 43);
+    --hvr: rgb(8, 71, 88);
+}
+
+@font-face {
+    font-family: 'Figtree';
+    src: url(./Figtree/Figtree-VariableFont_wght.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body, html {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Figtree', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    scroll-behavior: smooth;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+.main-content {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: min(1100px, calc(100% - 32px));
+    margin: 0 auto;
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: var(--bg2);
+    padding: 10px 0 10px;
+}
+
+.logo {
+    display: block;
+    align-items: center;
+    padding: 20px;
+}
+
+h1{
+    text-align: center;
+    font-weight: 800;
+    font-size: 56px;
+    margin: 0 0 80px;
+}
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 40px 15px;
+    justify-content: center;
+
+}
+.photo-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    aspect-ratio: 1 / 1; 
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.photo-grid img:nth-child(8){ grid-column: 2; }
+.photo-grid img:nth-child(12){ grid-column: 6; }
+
+.photo-grid img:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+dialog {
+background: transparent;
+border: 2px solid var(--bg2);
+border-radius: 40px;
+width: min(90vw, 900px);
+max-height: 90vh;
+padding: 0px;
+}
+
+.dialogShell{
+height: 100%;
+max-height: 90vh;
+padding: 40px;
+background: var(--bg);
+color: var(--text);
+display: flex;
+flex-direction: column;
+gap: 16px;
+box-sizing: border-box;
+}
+
+dialog.opened{
+    border: 2px solid var(--bg2);
+}
+
+dialog::backdrop{
+    opacity: 0;
+    background-color: var(--bg2);
+    transition: all 1s ease-in;
+}
+
+dialog.opened::backdrop{
+    opacity: 0.7;
+    background-color: var(--bg2);
+    transition: all 0.3s ease-in;
+}
+
+.dialog-Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.dialog-Img {
+    display: block;
+    object-fit: contain;
+    max-height: 70vh;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.dialog-Footer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 18px;
+}
+
+.close-icon, .next-btn, .previous-btn {
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    display: inline-flex;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    transition: background .2s ease,filter .15s ease, transform .15s ease;
+}
+
+.close-icon:hover{
+  background: var(--hvr);
+  transform: scale(1.1);
+}
+
+.close-icon:active{
+  background:rgb(11, 50, 64) ;
+}
+
+.next-btn:hover, .previous-btn:hover{
+filter: contrast(200%);
+transform: scale(1.1);
+}
+
+.previous-btn img{
+    transform: rotate(180deg);
+}
+
+.site-footer {
+background: var(--bg2);
+align-items: center;
+justify-content: center;
+display: flex;
+padding: 30px;
+border-radius: 100% 100% 0 0 / 80px;
+}
+
+.footer-inner {
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+/* Ultra-wide screens */
+@media (min-width: 1600px){
+  .container{
+    width: min(1920px, calc(100% - 80px));
+  }
+}
+
+/* Wide screens */
+@media (min-width: 1280px){
+  .container{
+    width: min(1440px, calc(100% - 64px));
+  }
+}
+
+/* Tablets */
+@media (max-width: 1280px){
+  .container{
+    width: min(980px, calc(100% - 40px));
+  }
+
+  .main-content{
+    padding: 40px 0;
+    align-items: normal;
+    justify-content: flex-start;
+  }
+  
+  h1{
+    font-size: clamp(36px , 5vw, 48px);
+    margin-bottom:50px ;
+  }
+
+  .photo-grid{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .photo-grid img{
+    width: min(200px, calc((100% - 20px) / 3));                        
+    height: auto;                              
+    object-fit: cover;
+  }
+
+  dialog{
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100vw;
+    height: 100vh;
+    border: none; 
+  }
+
+  .dialogShell{
+    padding: 20px;
+    height: 100%;
+    max-height: 100vh;
+  }
+}
+
+/* Mobile */
+@media (max-width: 545px){
+  .container{
+    width: calc(100% - 24px);
+  }
+
+  .photo-grid img{
+    width: calc((100% - 10px) / 2);
+  }
+}
