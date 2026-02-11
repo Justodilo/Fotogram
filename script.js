@@ -51,9 +51,3 @@ function closeDialog(){
     dialogRef.classList.remove("opened");
 }
 
-function closeOnBackdrop(event){
-  if (event.target === event.currentTarget) {
-    closeDialog();
-  }
-}
-
