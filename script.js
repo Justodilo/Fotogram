@@ -4,18 +4,25 @@ const imgNumber = document.getElementById("imgNumber");
 const picDesc = document.getElementById("picDesc");
 
 const grid = document.getElementById("photoGrid");
-const images = Array.from(grid.children);
+const imgBtn = grid.children;
+let images = [];
+let currentIndex = 0;
 
-let currentIndex = 0 ;
+for (let i = 0; i < imgBtn.length; i++) {
+    const img = imgBtn[i].firstElementChild;
+    images.push(img);
+
+    img.dataset.index = i ;
+}
 
 function showPic(i){
     currentIndex = i;
 
-    dialogPic.src = images[currentIndex].src;
-    dialogPic.alt = images[currentIndex].alt;
+    dialogPic.src = images[i].src;
+    dialogPic.alt = images[i].alt;
 
-    imgNumber.textContent = `${currentIndex + 1}/${images.length}`;
-    picDesc.textContent = images[currentIndex].alt;
+    imgNumber.textContent = `${i + 1}/${images.length}`;
+    picDesc.textContent = images[i].alt;
 }
 
 function nextPic() {
@@ -30,7 +37,10 @@ function prevPic() {
     showPic(prev);
 }
 
-function openDialog(i){
+function openDialog(btn){
+    const img = btn.firstElementChild;
+    const i = Number(img.dataset.index);
+
     showPic(i);
     dialogRef.showModal();
     dialogRef.classList.add("opened");
@@ -39,5 +49,11 @@ function openDialog(i){
 function closeDialog(){
     dialogRef.close();
     dialogRef.classList.remove("opened");
+}
+
+function closeOnBackdrop(event){
+  if (event.target === event.currentTarget) {
+    closeDialog();
+  }
 }
 

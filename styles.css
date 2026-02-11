@@ -65,9 +65,21 @@ h1{
     grid-template-columns: repeat(7, 1fr);
     gap: 40px 15px;
     justify-content: center;
-
 }
-.photo-grid img {
+
+.photo-grid button{
+  all:unset;
+  display: block;
+  cursor: pointer;
+}
+
+.photo-grid button:focus-visible{
+  outline: 2px solid aqua;
+  outline-offset: 4px;
+  border-radius: 10px;
+}
+
+.photo-grid button img {
     width: 100%;
     height: auto;
     border-radius: 8px;
@@ -76,8 +88,8 @@ h1{
     transition: transform 0.3s ease;
 }
 
-.photo-grid img:nth-child(8){ grid-column: 2; }
-.photo-grid img:nth-child(12){ grid-column: 6; }
+.photo-grid button:nth-child(8){ grid-column: 2; }
+.photo-grid button:nth-child(12){ grid-column: 6; }
 
 .photo-grid img:hover {
     transform: scale(1.05);
@@ -226,7 +238,7 @@ justify-content: center;
     justify-content: center;
   }
 
-  .photo-grid img{
+  .photo-grid button{
     width: min(200px, calc((100% - 20px) / 3));                        
     height: auto;                              
     object-fit: cover;
@@ -255,7 +267,7 @@ justify-content: center;
     width: calc(100% - 24px);
   }
 
-  .photo-grid img{
+  .photo-grid button{
     width: calc((100% - 10px) / 2);
   }
 }

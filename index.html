@@ -22,31 +22,31 @@
 
       <section>
         <div id="photoGrid" class="photo-grid">
-          <img src="IMG/img1.jpg" alt="Photo 1"   onclick="openDialog(0)" />
-          <img src="IMG/img2.jpg" alt="Photo 2"   onclick="openDialog(1)" />
-          <img src="IMG/img3.png" alt="Photo 3"   onclick="openDialog(2)" />
-          <img src="IMG/img4.jpg" alt="Photo 4"   onclick="openDialog(3)" />
-          <img src="IMG/img5.jpg" alt="Photo 5"   onclick="openDialog(4)" />
-          <img src="IMG/img6.jpg" alt="Photo 6"   onclick="openDialog(5)" />
-          <img src="IMG/img7.jpg" alt="Photo 7"   onclick="openDialog(6)" />
-          <img src="IMG/img8.jpg" alt="Photo 8"   onclick="openDialog(7)" />
-          <img src="IMG/img9.jpg" alt="Photo 9"   onclick="openDialog(8)" />
-          <img src="IMG/img10.jpg" alt="Photo 10" onclick="openDialog(9)" />
-          <img src="IMG/img11.jpg" alt="Photo 11" onclick="openDialog(10)" />
-          <img src="IMG/img12.jpg" alt="Photo 12" onclick="openDialog(11)" />
+          <button onclick="openDialog(this)" ><img src="IMG/img1.jpg" alt="Photo 1"  /></button>
+          <button onclick="openDialog(this)" ><img src="IMG/img2.jpg" alt="Photo 2"  /></button>
+          <button onclick="openDialog(this)" ><img src="IMG/img3.png" alt="Photo 3"  /></button>
+          <button onclick="openDialog(this)" ><img src="IMG/img4.jpg" alt="Photo 4"  /></button>
+          <button onclick="openDialog(this)" ><img src="IMG/img5.jpg" alt="Photo 5"  /></button>
+          <button onclick="openDialog(this)" ><img src="IMG/img6.jpg" alt="Photo 6"  /></button>
+          <button onclick="openDialog(this)" ><img src="IMG/img7.jpg" alt="Photo 7"  /></button>
+          <button onclick="openDialog(this)" ><img src="IMG/img8.jpg" alt="Photo 8"  /></button>
+          <button onclick="openDialog(this)" ><img src="IMG/img9.jpg" alt="Photo 9"  /></button>
+          <button onclick="openDialog(this)" ><img src="IMG/img10.jpg" alt="Photo 10"/></button>
+          <button onclick="openDialog(this)"><img src="IMG/img11.jpg" alt="Photo 11"/></button>
+          <button onclick="openDialog(this)"><img src="IMG/img12.jpg" alt="Photo 12"/></button>
         </div>
 
-        <dialog id="PopUpPhoto">
+        <dialog id="PopUpPhoto" onclick="closeOnBackdrop(event)">
           <div class="dialogShell">
         <header class="dialog-Header">
             <h2 id="picDesc"></h2>
-            <a class="close-icon" onclick="closeDialog()"><img src="./LOGO/close-icon.png" alt="close"></a>
+            <a tabindex="0" class="close-icon" onclick="closeDialog()"><img src="./LOGO/close-icon.png" alt="close"></a>
         </header>
           <img class="dialog-Img" id="dialogImg" />
           <footer class="dialog-Footer">
-            <span class="previous-btn" id="previousBtn" onclick="prevPic()"><img src="LOGO/arrow-btn.png" alt="previous"></span>
+            <span tabindex="0" class="previous-btn" id="previousBtn" onclick="prevPic()"><img src="LOGO/arrow-btn.png" alt="previous"></span>
             <span class="img-num" id="imgNumber"></span>
-            <a class="next-btn" id="nextBtn" onclick="nextPic()"><img src="LOGO/arrow-btn.png" alt="next"></a>
+            <a tabindex="0" class="next-btn" id="nextBtn" onclick="nextPic()"><img src="LOGO/arrow-btn.png" alt="next"></a>
           </footer>
           </div>
         </dialog>
