@@ -40,13 +40,15 @@
           <div class="dialogShell">
         <header class="dialog-Header">
             <h2 id="picDesc"></h2>
-            <a tabindex="0" class="close-icon" onclick="closeDialog()"><img src="./LOGO/close-icon.png" alt="close"></a>
+            <button class="close-icon" onclick="closeDialog()"><img src="./LOGO/close-icon.png" alt="close"></button>
         </header>
+        <div class="dialogBody">
           <img class="dialog-Img" id="dialogImg" />
+        </div>
           <footer class="dialog-Footer">
-            <span tabindex="0" class="previous-btn" id="previousBtn" onclick="prevPic()"><img src="LOGO/arrow-btn.png" alt="previous"></span>
+            <button class="previous-btn" id="previousBtn" onclick="prevPic()"><img src="LOGO/arrow-btn.png" alt="previous"></button>
             <span class="img-num" id="imgNumber"></span>
-            <a tabindex="0" class="next-btn" id="nextBtn" onclick="nextPic()"><img src="LOGO/arrow-btn.png" alt="next"></a>
+            <button class="next-btn" id="nextBtn" onclick="nextPic()"><img src="LOGO/arrow-btn.png" alt="next"></button>
           </footer>
           </div>
         </dialog>

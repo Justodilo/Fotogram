@@ -91,24 +91,22 @@ h1{
 .photo-grid button:nth-child(8){ grid-column: 2; }
 .photo-grid button:nth-child(12){ grid-column: 6; }
 
-.photo-grid img:hover {
+.photo-grid button:hover img{
     transform: scale(1.05);
-    cursor: pointer;
 }
 
 dialog {
 background: transparent;
 border: 2px solid var(--bg2);
 border-radius: 40px;
-width: min(90vw, 900px);
-max-height: 90vh;
+width: min(900px, calc(100vw - 32px));
+height: min(720px, calc(100vh - 32px));
 padding: 0px;
 }
 
 .dialogShell{
 height: 100%;
-max-height: 90vh;
-padding: 40px;
+padding: 24px;
 background: var(--bg);
 color: var(--text);
 display: flex;
@@ -139,17 +137,32 @@ dialog.opened::backdrop{
   align-items: center;
   font-weight: 600;
   font-size: 24px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+}
+
+.dialogBody{
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .dialog-Img {
-    display: block;
     object-fit: contain;
-    max-height: 70vh;
-    width: 100%;
+    max-height: 100%;
+    max-width: 100%;
     border-radius: 20px;
 }
 
 .dialog-Footer {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -158,6 +171,7 @@ dialog.opened::backdrop{
 
 .close-icon, .next-btn, .previous-btn {
     cursor: pointer;
+    all: unset;
     align-items: center;
     justify-content: center;
     display: inline-flex;
@@ -165,6 +179,13 @@ dialog.opened::backdrop{
     height: 44px;
     border-radius: 50%;
     transition: background .2s ease,filter .15s ease, transform .15s ease;
+}
+
+.close-icon:focus-visible,
+.previous-btn:focus-visible,
+.next-btn:focus-visible{
+  outline: 2px solid aqua;
+  outline-offset: 4px;
 }
 
 .close-icon:hover{
@@ -256,8 +277,6 @@ justify-content: center;
 
   .dialogShell{
     padding: 20px;
-    height: 100%;
-    max-height: 100vh;
   }
 }
 
