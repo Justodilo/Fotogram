@@ -170,7 +170,6 @@ dialog.opened::backdrop{
 }
 
 .close-icon, .next-btn, .previous-btn {
-    cursor: pointer;
     all: unset;
     align-items: center;
     justify-content: center;
@@ -178,6 +177,7 @@ dialog.opened::backdrop{
     width: 44px;
     height: 44px;
     border-radius: 50%;
+    cursor: pointer;
     transition: background .2s ease,filter .15s ease, transform .15s ease;
 }
 
@@ -281,9 +281,9 @@ justify-content: center;
 }
 
 /* Mobile */
-@media (max-width: 545px){
+@media (max-width: 450px){
   .container{
-    width: calc(100% - 24px);
+    width: calc(100% - 40px);
   }
 
   .photo-grid button{
