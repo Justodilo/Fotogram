@@ -5,15 +5,36 @@ const picDesc = document.getElementById("picDesc");
 
 const grid = document.getElementById("photoGrid");
 const imgBtn = grid.children;
-let images = [];
+let images = [
+    "img1.jpg",
+    "img2.jpg",
+    "img3.jpg",
+    "img4.jpg",
+    "img5.jpg",
+    "img6.png",
+    "img7.jpg",
+    "img8.jpg",
+    "img9.jpg",
+    "img10.jpg",
+    "img11.jpg",
+    "img12.jpg"
+];
+
 let currentIndex = 0;
 
-for (let i = 0; i < imgBtn.length; i++) {
-    const img = imgBtn[i].firstElementChild;
-    images.push(img);
-
-    img.dataset.index = i ;
+function renderPic (){
+    for (let i = 0; i < images.length; i++) {
+        let img = images[i];
+        
+    }
 }
+
+// for (let i = 0; i < imgBtn.length; i++) {
+//     const img = imgBtn[i].firstElementChild;
+//     images.push(img);
+
+//     img.dataset.index = i ;
+// }
 
 function showPic(i){
     currentIndex = i;
@@ -38,6 +59,7 @@ function prevPic() {
 }
 
 function openDialog(btn){
+    document.body.classList.add{"overflow-hidden"};
     const img = btn.firstElementChild;
     const i = Number(img.dataset.index);
 
@@ -47,6 +69,7 @@ function openDialog(btn){
 }
 
 function closeDialog(){
+    document.body.classList.remove{"overflow-hidden"};
     dialogRef.close();
     dialogRef.classList.remove("opened");
 }
