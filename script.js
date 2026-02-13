@@ -25,7 +25,6 @@ let currentIndex = 0;
 function renderPic (){
     for (let i = 0; i < images.length; i++) {
         let img = images[i];
-        
     }
 }
 
@@ -59,7 +58,7 @@ function prevPic() {
 }
 
 function openDialog(btn){
-    document.body.classList.add{"overflow-hidden"};
+    document.body.classList.add("overflow-hidden");
     const img = btn.firstElementChild;
     const i = Number(img.dataset.index);
 
@@ -69,7 +68,7 @@ function openDialog(btn){
 }
 
 function closeDialog(){
-    document.body.classList.remove{"overflow-hidden"};
+    document.body.classList.remove("overflow-hidden");
     dialogRef.close();
     dialogRef.classList.remove("opened");
 }
