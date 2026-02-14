@@ -4,14 +4,14 @@ const imgNumber = document.getElementById("imgNumber");
 const picDesc = document.getElementById("picDesc");
 
 const grid = document.getElementById("photoGrid");
-const imgBtn = grid.children;
-let images = [
+
+let images = [  //für Beschreibung vllt neue Array? 
     "img1.jpg",
     "img2.jpg",
-    "img3.jpg",
+    "img3.png",
     "img4.jpg",
     "img5.jpg",
-    "img6.png",
+    "img6.jpg",
     "img7.jpg",
     "img8.jpg",
     "img9.jpg",
@@ -20,29 +20,47 @@ let images = [
     "img12.jpg"
 ];
 
+let imagesRef = [
+    "Bild 1",
+    "Bild 2",
+    "Bild 3",
+    "Bild 4",
+    "Bild 5",
+    "Bild 6",
+    "Bild 7",
+    "Bild 8",
+    "Bild 9",
+    "Bild 10",
+    "Bild 11",
+    "Bild 12"
+];
+
 let currentIndex = 0;
 
-function renderPic (){
+function renderPic (){ //Global oder als Funktion
+    grid.innerHTML = "";
+    dialogPic.innerHTML = "";
+
     for (let i = 0; i < images.length; i++) {
-        let img = images[i];
+        let imgPath = images[i];
+        const imgRef = imagesRef[i];   
+    
+        grid.innerHTML += imgTemplate(imgPath, imgRef, i);
+        dialogPic.innerHTML += showPic(imgPath, imgRef, i);
     }
 }
 
-// for (let i = 0; i < imgBtn.length; i++) {
-//     const img = imgBtn[i].firstElementChild;
-//     images.push(img);
+function imgTemplate(imgPath, imgRef, i){
+    return `<button class="imgBtn" onclick="openDialog(this)">
+                <img src="IMG/${imgPath}" alt="${imgRef}" data-index="${i}"/>
+            </button>`;
+}
 
-//     img.dataset.index = i ;
-// }
-
-function showPic(i){
-    currentIndex = i;
-
-    dialogPic.src = images[i].src;
-    dialogPic.alt = images[i].alt;
+function showPic(imgPath, imgRef, i){
+    return `<img src="IMG/${images[i]}" alt="${imagesRef[i]}" data-index="${i}"/>`; 
 
     imgNumber.textContent = `${i + 1}/${images.length}`;
-    picDesc.textContent = images[i].alt;
+    picDesc.textContent = imagesRef[i];
 }
 
 function nextPic() {
@@ -57,10 +75,8 @@ function prevPic() {
     showPic(prev);
 }
 
-function openDialog(btn){
+function openDialog(btn, i){
     document.body.classList.add("overflow-hidden");
-    const img = btn.firstElementChild;
-    const i = Number(img.dataset.index);
 
     showPic(i);
     dialogRef.showModal();

@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="./LOGO/logo-klein.png" />
     <title>Fotogram</title>
   </head>
-  <body>
+  <body onload="renderPic()">
     <header class="site-header">
         <div class="container logo">
           <img src="./LOGO/Fotogram.png" alt="Fotogram Logo" />
@@ -20,19 +20,7 @@
       </section>
 
       <section>
-        <div id="photoGrid" class="photo-grid">
-          <button onclick="openDialog(this)" ><img src="IMG/img1.jpg" alt="Photo 1"  /></button>
-          <button onclick="openDialog(this)" ><img src="IMG/img2.jpg" alt="Photo 2"  /></button>
-          <button onclick="openDialog(this)" ><img src="IMG/img3.png" alt="Photo 3"  /></button>
-          <button onclick="openDialog(this)" ><img src="IMG/img4.jpg" alt="Photo 4"  /></button>
-          <button onclick="openDialog(this)" ><img src="IMG/img5.jpg" alt="Photo 5"  /></button>
-          <button onclick="openDialog(this)" ><img src="IMG/img6.jpg" alt="Photo 6"  /></button>
-          <button onclick="openDialog(this)" ><img src="IMG/img7.jpg" alt="Photo 7"  /></button>
-          <button onclick="openDialog(this)" ><img src="IMG/img8.jpg" alt="Photo 8"  /></button>
-          <button onclick="openDialog(this)" ><img src="IMG/img9.jpg" alt="Photo 9"  /></button>
-          <button onclick="openDialog(this)" ><img src="IMG/img10.jpg" alt="Photo 10"/></button>
-          <button onclick="openDialog(this)"><img src="IMG/img11.jpg" alt="Photo 11"/></button>
-          <button onclick="renderPic(i)"><img src="IMG/img12.jpg" alt="Photo 12"/></button>
+        <div id="photoGrid" class="photo-grid"">
         </div>
 
         <dialog id="PopUpPhoto" onclick="closeOnBackdrop(event)">
